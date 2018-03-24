@@ -14,6 +14,11 @@ export default {
     path: '/'
   },
 
+  ratings: {
+    label: 'Ratings',
+    path: '/ratings'
+  },
+
   staticGrid: {
     label: 'Static Grid',
     path: '/data-grids/static-grid'

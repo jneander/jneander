@@ -38,6 +38,12 @@ module.exports = configureApp({
       outputPath: '',
       sourcePath: 'home',
       template: 'shared/markup/index.html'
+    },
+    {
+      name: 'ratings',
+      outputPath: 'ratings',
+      sourcePath: 'ratings',
+      template: 'shared/markup/index.html'
     }
   ]
 })
