@@ -1,6 +1,6 @@
 {
   "name": "@jneander/sandbox",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "A place to exercise various projects together and dogfood their development environments",
   "main": "./index.js",
   "scripts": {
@@ -28,13 +28,13 @@
   "dependencies": {
     "@instructure/ui-core": "^4.7.1",
     "@instructure/ui-themes": "^4.7.1",
-    "@jneander/data-grid": "^0.0.1",
+    "@jneander/data-grid": "^0.0.2",
     "normalize.css": "^8.0.0",
     "react": "^15.6.1",
     "react-dom": "^15.6.1"
   },
   "devDependencies": {
-    "@jneander/dev-tools": "^0.0",
+    "@jneander/dev-tools": "^0.0.5",
     "chai": "^4.1.2",
     "npm-run-all": "^4.1.2",
     "sinon": "^4.4.1"

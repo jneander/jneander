@@ -1,6 +1,6 @@
 {
   "name": "@jneander/data-grid",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "An Accessible Data Grid",
   "main": "./lib/index.js",
   "module": "./es/index.js",
@@ -22,7 +22,7 @@
     "react-measure": "1.4.7"
   },
   "devDependencies": {
-    "@jneander/dev-tools": "^0.0"
+    "@jneander/dev-tools": "^0.0.5"
   },
   "peerDependencies": {
     "react": ">=15.6.1",
