@@ -100,10 +100,11 @@ export default class DataGridV4 extends PureComponent {
               columns={this.state.columns}
               freezeColumnsEnd={this.state.freezeColumnsEnd}
               freezeColumnsStart={this.state.freezeColumnsStart}
-              freezeHeader
-              freezeRowsBottom={0}
-              freezeRowsTop={0}
+              freezeColumnHeaders
               headerHeight={40}
+              highlightActiveColumn
+              highlightActiveLocation
+              highlightActiveRow
               navigableHeaders
               renderCell={props => {
                 if (props.column.id === 'studentName') {

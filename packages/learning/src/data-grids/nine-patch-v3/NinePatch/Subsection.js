@@ -23,7 +23,14 @@ export default class Subsection extends PureComponent {
 
     this._handleNodeScroll = () => {
       const {scrollLeft, scrollTop} = this._scrollParent
-      this._fixedText.updateParentScrollPosition({left: scrollLeft, top: scrollTop})
+      const {horizontalScrollDirection, verticalScrollDirection} = this.props
+
+      this._fixedText.updateText({
+        horizontalScrollDirection,
+        left: scrollLeft,
+        top: scrollTop,
+        verticalScrollDirection
+      })
     }
   }
 
@@ -45,24 +52,28 @@ export default class Subsection extends PureComponent {
       ? styles.ScrollableSubsectionContainer
       : styles.FrozenSubsectionContainer
 
-    let view = (
-      <div className={className} ref={this._bindScrollParent}>
-        <div className={styles.Subsection} style={contentStyle}>
-          <FixedText ref={this._bindFixedText} />
-        </div>
-      </div>
-    )
-
     const {horizontalScroll, verticalScroll} = this.props
 
     if (horizontalScroll || verticalScroll) {
-      view = (
+      return (
         <ControlledView horizontal={horizontalScroll} vertical={verticalScroll}>
-          {view}
+          <div className={className} ref={this._bindScrollParent}>
+            <div className={styles.Subsection} style={contentStyle}>
+              <FixedText
+                horizontalScrollDirection={this.props.horizontalScrollDirection}
+                ref={this._bindFixedText}
+                verticalScrollDirection={this.props.verticalScrollDirection}
+              />
+            </div>
+          </div>
         </ControlledView>
       )
     }
 
-    return view
+    return (
+      <div className={className} ref={this._bindScrollParent}>
+        <div className={styles.Subsection} style={contentStyle} />
+      </div>
+    )
   }
 }

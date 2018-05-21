@@ -9,32 +9,12 @@
   position: relative;
 }
 
-:local(.Cell.EvenRow) {
-  background: var(--rowLight);
-}
-
-:local(.Cell.OddRow) {
-  background: var(--rowDark);
-}
-
-:local(.Cell.ActiveColumn) {
-  border-left-color: var(--activeBorderColor);
-  border-right-color: var(--activeBorderColor);
-  z-index: 2;
-}
-
 :local(.Cell.ActiveColumn.FirstRow) {
   border-top-color: var(--activeBorderColor);
 }
 
 :local(.Cell.ActiveColumn.LastRow) {
   border-bottom-color: var(--activeBorderColor);
-}
-
-:local(.Cell.ActiveRow) {
-  border-top-color: var(--activeBorderColor);
-  border-bottom-color: var(--activeBorderColor);
-  z-index: 2;
 }
 
 :local(.Cell.ActiveRow.LastColumn) {
@@ -45,11 +25,10 @@
   border-left-color: var(--activeBorderColor);
 }
 
-:local(.Cell.ActiveRow.ActiveColumn) {
-  z-index: 3;
+:local(.Cell.EvenRow) {
+  background: var(--rowLight);
 }
 
-/* :local(.Cell), */
-/* :local(.Cell > *) { */
-/*   outline: none; */
-/* } */
+:local(.Cell.OddRow) {
+  background: var(--rowDark);
+}

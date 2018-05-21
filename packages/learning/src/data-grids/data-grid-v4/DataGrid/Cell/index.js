@@ -4,16 +4,7 @@ import styles from './styles.css'
 
 export default class Cell extends PureComponent {
   render() {
-    const classNames = [styles.Cell]
-    if (this.props.isActiveLocation) {
-      classNames.push(styles.CellActive)
-    }
-    if (this.props.isActiveColumn) {
-      classNames.push(styles.ActiveColumn)
-    }
-    if (this.props.isActiveRow) {
-      classNames.push(styles.ActiveRow)
-    }
+    const classNames = [styles.Cell, this.props.column.id, this.props.row.id]
     if (this.props.isFirstRow) {
       classNames.push(styles.FirstRow)
     }

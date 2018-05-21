@@ -1,16 +1,19 @@
 import React, {PureComponent} from 'react'
 import PropTypes from 'prop-types'
 
-import ScrollSync from './utils/ScrollSync'
-import ScrollSyncPane from './utils/ScrollSyncPane'
+import ViewController from './utils/ViewController'
 import GridSection from './GridSection'
 import KeyCodes from './utils/KeyCodes'
+import Style from './Style'
 import styles from './styles.css'
 
 export default class Grid extends PureComponent {
   static defaultProps = {
     freezeColumnsEnd: 0,
     freezeColumnsStart: 0,
+    highlightActiveColumn: true,
+    highlightActiveLocation: true,
+    highlightActiveRow: true,
     navigableHeaders: false,
     rowsPerPage: 10
   }
@@ -238,9 +241,16 @@ export default class Grid extends PureComponent {
     }
 
     return (
-      <ScrollSync>
+      <ViewController>
         {() => (
           <div className={styles.Grid} onKeyDown={this.handleKeyDown} style={style}>
+            <Style
+              activeLocation={this.state.activeLocation}
+              highlightActiveColumn={this.props.highlightActiveColumn}
+              highlightActiveLocation={this.props.highlightActiveLocation}
+              highlightActiveRow={this.props.highlightActiveRow}
+            />
+
             {frozenColumnsStart.length > 0 && (
               <GridSection
                 {...sectionProps}
@@ -262,7 +272,7 @@ export default class Grid extends PureComponent {
             )}
           </div>
         )}
-      </ScrollSync>
+      </ViewController>
     )
   }
 }

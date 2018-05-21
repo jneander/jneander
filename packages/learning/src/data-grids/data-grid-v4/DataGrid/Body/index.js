@@ -29,6 +29,17 @@ export default class Body extends Component {
     this.bindRowGroup = ref => {
       this.rowGroup = ref
     }
+
+    this._cellCache = {}
+  }
+
+  componentWillReceiveProps(nextProps) {
+    const {columnId: thisColumnId, rowId: thisRowId} = this.props.activeLocation
+    const {columnId: nextColumnId, rowId: nextRowId} = nextProps.activeLocation
+    if (thisColumnId !== nextColumnId || thisRowId !== nextRowId) {
+      delete this._cellCache[`${thisColumnId}–${thisRowId}`]
+      delete this._cellCache[`${nextColumnId}–${nextRowId}`]
+    }
   }
 
   handleClick(event) {
@@ -60,32 +71,38 @@ export default class Body extends Component {
         const isActiveColumn = activeLocation.columnId === column.id
         const isActiveLocation = isActiveColumn && isActiveRow
 
-        const cell = this.props.renderCell({
-          'aria-labelledby': `column-${column.id}-label,${rowElementId}`,
-          column,
-          focusableRef: isActiveLocation ? bindActiveElement : null,
-          isActiveLocation,
-          row,
-          tabIndex: isActiveLocation ? '0' : '-1'
-        })
+        const cacheId = `${column.id}–${row.id}`
+        let cell = this._cellCache[cacheId]
 
-        const props = {
-          column: column,
-          columnOffset: columnOffset,
-          isActiveColumn: activeLocation.columnId === column.id,
-          isActiveLocation: isActiveLocation,
-          isActiveRow: activeLocation.rowId === row.id,
-          isEvenRow: r % 2 === 0,
-          isFirstColumn: c === 0 && this.props.isInFirstSection,
-          isFirstRow: r === 0,
-          isLastColumn: c === columns.length - 1 && this.props.isInLastSection,
-          isLastRow: r === rows.length - 1,
-          key: `${row.id}_${column.id}`,
-          height: this.props.rowHeight,
-          rowOffset: r * this.props.rowHeight - r
+        if (!cell) {
+          cell = this.props.renderCell({
+            'aria-labelledby': `column-${column.id}-label,${rowElementId}`,
+            column,
+            focusableRef: isActiveLocation ? bindActiveElement : null,
+            isActiveLocation,
+            row,
+            tabIndex: isActiveLocation ? '0' : '-1'
+          })
+
+          const props = {
+            column: column,
+            columnOffset: columnOffset,
+            isEvenRow: r % 2 === 0,
+            isFirstColumn: c === 0 && this.props.isInFirstSection,
+            isFirstRow: r === 0,
+            isLastColumn: c === columns.length - 1 && this.props.isInLastSection,
+            isLastRow: r === rows.length - 1,
+            key: `${row.id}_${column.id}`,
+            height: this.props.rowHeight,
+            row,
+            rowOffset: r * this.props.rowHeight - r
+          }
+
+          cell = React.cloneElement(cell, props)
+          this._cellCache[cacheId] = cell
         }
 
-        cells.push(React.cloneElement(cell, props))
+        cells.push(cell)
 
         columnOffset += column.width - 1 // account for border width
       }

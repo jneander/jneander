@@ -7,13 +7,3 @@
   justify-content: center;
   position: absolute;
 }
-
-:local(.ColumnHeader.ActiveColumn) {
-  border-color: var(--activeBorderColor);
-  z-index: 2;
-}
-
-/* :local(.ColumnHeader), */
-/* :local(.ColumnHeader > *) { */
-/*   outline: none; */
-/* } */

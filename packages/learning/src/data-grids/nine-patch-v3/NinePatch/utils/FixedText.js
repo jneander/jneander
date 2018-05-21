@@ -4,7 +4,7 @@ export default class FixedText extends PureComponent {
   constructor(props) {
     super(props)
 
-    this.updateParentScrollPosition = this.updateParentScrollPosition.bind(this)
+    this.updateText = this.updateText.bind(this)
 
     this.state = {
       left: 0,
@@ -12,8 +12,8 @@ export default class FixedText extends PureComponent {
     }
   }
 
-  updateParentScrollPosition(scrollPosition) {
-    this.setState(scrollPosition)
+  updateText(details) {
+    this.setState(details)
   }
 
   render() {
@@ -25,6 +25,8 @@ export default class FixedText extends PureComponent {
       <div style={style}>
         <span style={{display: 'block'}}>Left: {this.state.left}</span>
         <span style={{display: 'block'}}>Top: {this.state.top}</span>
+        <span style={{display: 'block'}}>Horizontal: {this.props.horizontalScrollDirection}</span>
+        <span style={{display: 'block'}}>Vertical: {this.props.verticalScrollDirection}</span>
       </div>
     )
   }

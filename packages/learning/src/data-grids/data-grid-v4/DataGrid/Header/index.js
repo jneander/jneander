@@ -64,10 +64,6 @@ export default class Header extends PureComponent {
         column: column,
         columnOffset: columnOffset,
         height: this.props.height,
-        isActiveColumn: isActiveColumn,
-        isActiveLocation: isActiveLocation,
-        isFirstColumn: c === 0,
-        isLastColumn: c === columns.length - 1,
         key: column.id
       }
 

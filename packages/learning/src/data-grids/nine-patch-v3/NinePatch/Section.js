@@ -10,27 +10,47 @@ export default class Section extends PureComponent {
 
   render() {
     const className = this.props.horizontalScroll ? styles.ScrollableSection : styles.FrozenSection
+    const contentWidth = this.props.columns.reduce((sum, column) => sum + column.width, 0)
+    const bottomContentHeight = this.props.bottomRows.length * this.props.rowHeight
+    const scrollableContentHeight = this.props.scrollableRows.length * this.props.rowHeight
+    const topContentHeight = this.props.topRows.length * this.props.rowHeight
+
+    const subsectionProps = {
+      columns: this.props.columns,
+      contentWidth: contentWidth,
+      horizontalScroll: this.props.horizontalScroll,
+      horizontalScrollDirection: this.props.horizontalScrollDirection,
+      rowHeight: this.props.rowHeight,
+      verticalScrollDirection: this.props.verticalScrollDirection
+    }
 
     return (
       <div className={className}>
-        <Subsection
-          contentHeight={this.props.sectionHeights[0]}
-          contentWidth={this.props.contentWidth}
-          horizontalScroll={this.props.horizontalScroll}
-        />
+        {this.props.topRows.length > 0 && (
+          <Subsection
+            {...subsectionProps}
+            contentHeight={topContentHeight}
+            firstRowIndex={0}
+            rows={this.props.topRows}
+          />
+        )}
 
         <Subsection
-          contentHeight={this.props.sectionHeights[1]}
-          contentWidth={this.props.contentWidth}
-          horizontalScroll={this.props.horizontalScroll}
+          {...subsectionProps}
+          contentHeight={scrollableContentHeight}
+          firstRowIndex={this.props.topRows.length}
+          rows={this.props.scrollableRows}
           verticalScroll
         />
 
-        <Subsection
-          contentHeight={this.props.sectionHeights[2]}
-          contentWidth={this.props.contentWidth}
-          horizontalScroll={this.props.horizontalScroll}
-        />
+        {this.props.topRows.length > 0 && (
+          <Subsection
+            {...subsectionProps}
+            contentHeight={bottomContentHeight}
+            firstRowIndex={this.props.topRows.length + this.props.scrollableRows.length}
+            rows={this.props.bottomRows}
+          />
+        )}
       </div>
     )
   }
