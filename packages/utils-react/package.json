@@ -1,7 +1,9 @@
 {
-  "name": "@jneander/react-utils",
+  "name": "@jneander/utils-react",
   "version": "0.0.2",
   "description": "React Utilities",
+  "main": "./lib/index.js",
+  "module": "./es/index.js",
   "scripts": {
     "build": "build-lib",
     "build:production": "build-lib",
