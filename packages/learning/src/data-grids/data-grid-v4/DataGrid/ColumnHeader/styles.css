@@ -1,9 +1,0 @@
-:local(.ColumnHeader) {
-  align-items: center;
-  border: 1px solid var(--borderColor);
-  border-left-color: transparent;
-  border-right-color: transparent;
-  border-top-color: transparent; display: flex;
-  justify-content: center;
-  position: absolute;
-}
