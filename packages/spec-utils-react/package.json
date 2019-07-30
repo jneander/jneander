@@ -1,0 +1,67 @@
+{
+  "name": "@jneander/spec-utils-react",
+  "version": "1.0.0",
+  "description": "Spec utilities for React interfaces",
+  "main": "./lib/index.js",
+  "module": "./es/index.js",
+  "scripts": {
+    "build": "NODE_ENV=development build-lib",
+    "build:watch": "NODE_ENV=development build-lib --watch",
+    "clean": "clean",
+    "format": "yarn format:js",
+    "format:js": "format-js --pattern './src/**/*.js'",
+    "lint:js:fix": "lint-js --fix --pattern './src/**/*.js'",
+    "lint:js:test": "lint-js --test --pattern './src/**/*.js'",
+    "test": "./scripts/test.js",
+    "test:head": "yarn test --no-headless",
+    "test:head:watch": "yarn test --no-headless --watch",
+    "test:watch": "yarn test --watch"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/jneander/jneander/packages/spec-utils-react"
+  },
+  "keywords": [
+    "routing"
+  ],
+  "author": "Jeremy Neander <jeremy.neander@gmail.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/jneander/jneander/issues"
+  },
+  "homepage": "https://github.com/jneander/jneander/packages/spec-utils-react",
+  "dependencies": {
+    "@testing-library/react": "^8.0.1",
+    "@testing-library/react-hooks": "^1.1.0",
+    "keycodes": "^1.0.0"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.4.5",
+    "@babel/plugin-transform-runtime": "^7.4.4",
+    "@babel/preset-env": "^7.4.5",
+    "@babel/preset-react": "^7.0.0",
+    "@jneander/dev-build": "^1.0.0",
+    "@jneander/dev-lint": "^1.0.0",
+    "@jneander/dev-utils-node": "^1.0.0",
+    "@jneander/spec-utils-dom": "^1.0.0",
+    "babel-loader": "^8.0.6",
+    "chai": "^4.2.0",
+    "karma": "^4.1.0",
+    "karma-chrome-launcher": "^3.0.0",
+    "karma-mocha": "^1.3.0",
+    "karma-sourcemap-loader": "^0.3.7",
+    "karma-spec-reporter": "^0.0.32",
+    "karma-webpack": "^4.0.0-rc.6",
+    "mocha": "^6.1.4",
+    "prop-types": "^15.7.2",
+    "react": "^16.8.6",
+    "react-dom": "^16.8.6",
+    "sinon": "^7.3.2",
+    "webpack": "^4.33.0"
+  },
+  "peerDependencies": {
+    "react": "^16.8.0",
+    "react-dom": "^16.8.0",
+    "react-test-renderer": "^16.8.0"
+  }
+}
