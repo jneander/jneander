@@ -1,0 +1,53 @@
+{
+  "name": "@jneander/utils-state",
+  "version": "1.0.0",
+  "description": "Utilities for managing state",
+  "main": "./lib/index.js",
+  "module": "./es/index.js",
+  "scripts": {
+    "build": "build-lib",
+    "build:production": "build-lib",
+    "build:watch": "build-lib --watch",
+    "clean": "clean",
+    "format": "yarn format:js",
+    "format:js": "format-js --pattern './src/**/*.js'",
+    "lint:js:fix": "lint-js --fix --pattern './src/**/*.js'",
+    "lint:js:test": "lint-js --test --pattern './src/**/*.js'",
+    "test": "./scripts/test.js",
+    "test:head": "yarn test --no-headless",
+    "test:head:watch": "yarn test --no-headless --watch",
+    "test:watch": "yarn test --watch"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/jneander/jneander/packages/utils-state"
+  },
+  "keywords": [
+    "routing"
+  ],
+  "author": "Jeremy Neander <jeremy.neander@gmail.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/jneander/jneander/issues"
+  },
+  "homepage": "https://github.com/jneander/jneander/packages/utils-state",
+  "devDependencies": {
+    "@babel/core": "^7.4.5",
+    "@babel/plugin-transform-runtime": "^7.4.4",
+    "@babel/preset-env": "^7.4.5",
+    "@jneander/dev-build": "^1.0.0",
+    "@jneander/dev-lint": "^1.0.0",
+    "@jneander/dev-utils-node": "^1.0.0",
+    "babel-loader": "^8.0.6",
+    "chai": "^4.2.0",
+    "karma": "^4.1.0",
+    "karma-chrome-launcher": "^3.0.0",
+    "karma-mocha": "^1.3.0",
+    "karma-sourcemap-loader": "^0.3.7",
+    "karma-spec-reporter": "^0.0.32",
+    "karma-webpack": "^4.0.0-rc.6",
+    "mocha": "^6.1.4",
+    "sinon": "^7.3.2",
+    "webpack": "^4.33.0"
+  }
+}
