@@ -2,52 +2,51 @@ import qs from 'qs'
 import UrlPattern from 'url-pattern'
 
 export default class Route {
-  constructor(name, contexts, path, details = {}) {
-    this.internals = {
-      urlPattern: new UrlPattern(path)
-    }
-    this.name = name
-    this.contexts = contexts
-    this.path = path
-    this.details = details
+  constructor(activityName, pathPattern) {
+    const pathParts = pathPattern.split('/').filter(str => str)
+
+    this._activityName = activityName
+    this._pathParts = pathParts
+    this._urlPattern = new UrlPattern(`/${pathParts.join('/')}(/)`)
   }
 
-  buildActivity(path, query) {
+  get activityName() {
+    return this._activityName
+  }
+
+  buildActivity(params, query) {
+    const url = this._urlPattern.stringify(params)
+    let queryString = qs.stringify(query)
+    if (queryString) {
+      queryString = `?${queryString}`
+    }
+
     return {
-      name: this.name,
-      contexts: this.contexts.map(context => context.name),
-      ...this.internals.urlPattern.match(path),
-      query
+      name: this.activityName,
+      params: this._urlPattern.match(url),
+      query: query || {},
+      url: `${url}${queryString}`
     }
   }
 
-  buildHelpers() {
-    return {
-      url(pathValues, query = {}) {
-        const pathString = this.internals.urlPattern.stringify(pathValues)
-        const queryString = Object.keys(query).length > 0 ? `?${qs.stringify(query)}` : ''
-        return pathString + queryString
-      }
-    }
+  buildActivityFromLocation(path, query) {
+    return this.buildActivity(this._urlPattern.match(path), query)
   }
 
+  /*
+   * Returns null when the route does not match the given path. Otherwise
+   * returns an integer representing how closely the route matches the path.
+   * Lower values indicate a closer match (1 is exact match).
+   */
   match(path) {
-    return !!this.internals.urlPattern.match(path)
-  }
+    const match = this._urlPattern.match(path)
+    if (!match) {
+      return null
+    }
 
-  buildUrl(...args) {
-    const pathValueMap = {}
-    this.internals.urlPattern.names.forEach((name, index) => {
-      pathValueMap[name] = args[index] || 'undefined'
-      if (!args[index]) {
-        console.warn(`no value given for ${name} in path ${this.internals.urlPattern.regex}`)
-      }
-    })
-    const pathString = this.internals.urlPattern.stringify(pathValueMap)
+    const pathParts = path.split('/').filter(str => str)
+    const matchBits = pathParts.map((part, index) => (part === this._pathParts[index] ? 0 : 1))
 
-    const query = args[this.internals.urlPattern.names.length] || {}
-    const queryString = Object.keys(query).length > 0 ? `?${qs.stringify(query)}` : ''
-
-    return pathString + queryString
+    return parseInt([...matchBits, 1].join(''), 2)
   }
 }
