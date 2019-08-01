@@ -20,7 +20,7 @@ export default class Fitness {
     return this.value.toString()
   }
 
-  valueOf(fitness) {
+  valueOf() {
     return this.value
   }
 }

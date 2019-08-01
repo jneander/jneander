@@ -9,8 +9,8 @@
     "build:production": "build-lib",
     "build:watch": "build-lib --watch",
     "clean": "clean",
-    "lint": "lint-code",
-    "lint:fix": "lint-code --fix"
+    "format": "yarn format:js",
+    "format:js": "format-js --pattern './src/**/*.js'"
   },
   "repository": {
     "type": "git",
@@ -23,6 +23,7 @@
     "react-scroll-sync": "^0.5.0"
   },
   "devDependencies": {
+    "@jneander/dev-lint": "^1.0.0",
     "@jneander/dev-tools": "^0.0.13",
     "react": "^15.6.1",
     "react-dom": "^15.6.1"

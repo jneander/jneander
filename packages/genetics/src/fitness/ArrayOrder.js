@@ -31,7 +31,7 @@ export default class ArrayOrder {
     this.config = config
   }
 
-  getFitness(current, target) {
+  getFitness(current) {
     let fitness = 1
     let gap = 0
 
