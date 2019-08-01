@@ -9,8 +9,10 @@
     "build:production": "build-lib",
     "build:watch": "build-lib --watch",
     "clean": "clean",
-    "lint": "lint-code",
-    "lint:fix": "lint-code --fix"
+    "format": "yarn format:js",
+    "format:js": "format-js --pattern './src/**/*.js'",
+    "lint:js:fix": "lint-js --fix --pattern './src/**/*.js'",
+    "lint:js:test": "lint-js --test --pattern './src/**/*.js'"
   },
   "repository": {
     "type": "git",
@@ -22,6 +24,7 @@
     "@jneander/async-utils": "^0.0.4"
   },
   "devDependencies": {
+    "@jneander/dev-lint": "^1.0.0",
     "@jneander/dev-tools": "^0.0.13"
   },
   "publishConfig": {
