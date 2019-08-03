@@ -30,8 +30,8 @@
     "@babel/preset-react": "^7.0.0",
     "@babel/runtime-corejs3": "^7.5.5",
     "babel-plugin-transform-react-remove-prop-types": "^0.4.24",
-    "npm-packlist": "^1.1.10",
-    "rimraf": "^2.6.2"
+    "npm-packlist": "^1.4.4",
+    "rimraf": "^2.6.3"
   },
   "devDependencies": {
     "@jneander/dev-utils-node": "^1.0.0"
