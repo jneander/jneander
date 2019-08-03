@@ -1,0 +1,42 @@
+{
+  "name": "@jneander/dev-build",
+  "version": "1.0.0",
+  "description": "Development Tools for Building Libraries",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/jneander/jneander/packages/dev-build"
+  },
+  "author": "Jeremy Neander <jeremy.neander@gmail.com>",
+  "bin": {
+    "build-lib": "./scripts/build/build-lib.js",
+    "clean": "./scripts/build/clean.js",
+    "publish-list": "./scripts/publish/publish-list.js"
+  },
+  "scripts": {
+    "format:js": "format-js",
+    "lint:js:fix": "lint-js --fix",
+    "lint:js:test": "lint-js --test"
+  },
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/jneander/jneander/issues"
+  },
+  "homepage": "https://github.com/jneander/jneander/packages/dev-build",
+  "dependencies": {
+    "@jneander/dev-lint": "^1.0.0",
+    "@babel/cli": "^7.5.5",
+    "@babel/core": "^7.5.5",
+    "@babel/preset-env": "^7.5.5",
+    "@babel/preset-react": "^7.0.0",
+    "@babel/runtime-corejs3": "^7.5.5",
+    "babel-plugin-transform-react-remove-prop-types": "^0.4.24",
+    "npm-packlist": "^1.1.10",
+    "rimraf": "^2.6.2"
+  },
+  "devDependencies": {
+    "@jneander/dev-utils-node": "^1.0.0"
+  },
+  "publishConfig": {
+    "access": "public"
+  }
+}
