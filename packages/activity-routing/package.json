@@ -28,7 +28,7 @@
   },
   "homepage": "https://github.com/jneander/jneander",
   "dependencies": {
-    "qs": "^6.5.2",
+    "qs": "^6.7.0",
     "url-pattern": "^1.0.3"
   },
   "devDependencies": {
