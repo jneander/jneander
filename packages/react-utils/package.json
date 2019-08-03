@@ -19,8 +19,8 @@
   },
   "author": "Jeremy Neander <jeremy.neander@gmail.com>",
   "devDependencies": {
-    "@jneander/dev-lint": "^1.0.0",
-    "@jneander/dev-tools": "^0.0.13"
+    "@jneander/dev-build": "^1.0.0",
+    "@jneander/dev-lint": "^1.0.0"
   },
   "peerDependencies": {
     "react": ">=15"
