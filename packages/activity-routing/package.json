@@ -1,6 +1,6 @@
 {
   "name": "@jneander/activity-routing",
-  "version": "0.0.2",
+  "version": "1.0.0",
   "description": "Routing by domain concepts instead of URLs",
   "main": "./lib/index.js",
   "module": "./es/index.js",
