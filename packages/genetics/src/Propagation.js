@@ -1,4 +1,4 @@
-import {BoundedLoop} from '@jneander/async-utils'
+import {BoundedLoop} from '@jneander/utils-async'
 
 function iterate() {
   this.iterationCount++
