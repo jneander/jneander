@@ -1,6 +1,6 @@
 import {queries} from '@testing-library/dom'
 
-import wait from '../wait'
+import {waitForCondition} from '@jneander/utils-async'
 
 const exports = {}
 
@@ -16,7 +16,7 @@ attributes.forEach(attribute => {
 
   const getBy = queries[`getBy${attribute}`]
   exports[`findBy${attribute}`] = ($container, text, findOptions, waitOptions) =>
-    wait(() => getBy($container, text, findOptions), waitOptions)
+    waitForCondition(() => getBy($container, text, findOptions), waitOptions)
 })
 
 export default exports
