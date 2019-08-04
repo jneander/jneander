@@ -42,6 +42,7 @@
     "@jneander/dev-build": "^1.0.0",
     "@jneander/dev-lint": "^1.0.0",
     "@jneander/dev-utils-node": "^1.0.0",
+    "@jneander/utils-async": "^1.0.0",
     "babel-loader": "^8.0.6",
     "chai": "^4.2.0",
     "karma": "^4.1.0",
