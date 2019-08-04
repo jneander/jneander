@@ -1,5 +1,5 @@
 {
-  "name": "@jneander/async-utils",
+  "name": "@jneander/utils-async",
   "version": "0.0.4",
   "description": "Asynchronous Utilities",
   "main": "./lib/index.js",
