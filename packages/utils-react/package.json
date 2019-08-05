@@ -1,5 +1,5 @@
 {
-  "name": "@jneander/react-utils",
+  "name": "@jneander/utils-react",
   "version": "0.0.2",
   "description": "React Utilities",
   "scripts": {
@@ -23,7 +23,7 @@
     "@jneander/dev-lint": "^1.0.0"
   },
   "peerDependencies": {
-    "react": ">=15"
+    "react": ">=16.8.0"
   },
   "publishConfig": {
     "access": "public"
