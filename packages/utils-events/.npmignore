@@ -1,0 +1,13 @@
+# Development Directories
+_spec_
+config
+scripts
+spec-support
+src
+
+# Development Files
+*.spec.js
+.eslintrc.js
+
+# Temporary Directories
+.babel-cache
