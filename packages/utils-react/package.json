@@ -32,6 +32,7 @@
   },
   "homepage": "https://github.com/jneander/jneander/packages/utils-react",
   "dependencies": {
+    "@jneander/utils": "^1.0.0",
     "popper.js": "^1.15.0"
   },
   "devDependencies": {
@@ -44,7 +45,6 @@
     "@jneander/dev-utils-node": "^1.0.0",
     "@jneander/spec-utils-dom": "^1.0.0",
     "@jneander/spec-utils-react": "^1.0.0",
-    "@jneander/utils": "^1.0.0",
     "@jneander/utils-state": "^1.0.0",
     "babel-loader": "^8.0.6",
     "chai": "^4.2.0",
