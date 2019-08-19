@@ -1,6 +1,6 @@
 {
   "name": "@jneander/a11y-react",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Accessibility behavior for React",
   "main": "./lib/index.js",
   "module": "./es/index.js",
