@@ -32,8 +32,7 @@
   },
   "homepage": "https://github.com/jneander/jneander/packages/a11y-react",
   "dependencies": {
-    "@jneander/a11y-dom": "^1.0.0",
-    "popper.js": "^1.15.0"
+    "@jneander/a11y-dom": "^1.0.0"
   },
   "devDependencies": {
     "@babel/core": "^7.4.5",
