@@ -1,6 +1,6 @@
 import partition from '../partition'
 
-describe('.partition()', () => {
+describe('Arrays > .partition()', () => {
   it('splits the array into two equal parts when partition size is half of the array length', () => {
     const array = [1, 2, 3, 4, 5, 6]
     expect(partition(array, 3)).to.deep.equal([[1, 2, 3], [4, 5, 6]])
