@@ -1,6 +1,6 @@
 {
   "name": "@jneander/utils",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Utilities for common use cases",
   "main": "./lib/index.js",
   "module": "./es/index.js",
