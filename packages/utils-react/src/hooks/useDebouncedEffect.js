@@ -9,5 +9,6 @@ export default function useDebouncedEffect(callback, dependencies, delay = DEFAU
     return () => {
       window.clearTimeout(timeoutId)
     }
-  }, [callback, delay])
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [...dependencies])
 }
