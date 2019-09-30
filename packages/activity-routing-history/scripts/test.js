@@ -25,9 +25,11 @@ if (pattern) {
 const configPath = path.join(__dirname, '../config/specs.js')
 args.push(configPath)
 
-runCommandSync(
-  buildCommand('karma', args, {
-    NODE_ENV: 'test',
-    NODE_OPTIONS: '--max_old_space_size=4096'
-  })
+process.exit(
+  runCommandSync(
+    buildCommand('karma', args, {
+      NODE_ENV: 'test',
+      NODE_OPTIONS: '--max_old_space_size=4096'
+    })
+  ).status
 )
