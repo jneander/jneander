@@ -55,13 +55,17 @@ function runConcurrently(commands) {
   return result
 }
 
-async function runCommandSync(command, opts = {}) {
-  const result = execa.sync(command.bin, command.args, {
-    env: {FORCE_COLOR: true, ...command.env},
-    stdio: 'inherit'
-  })
-  result.status = result.status || result.code
-  return result
+function runCommandSync(command, opts = {}) {
+  try {
+    const result = execa.sync(command.bin, command.args, {
+      env: {FORCE_COLOR: true, ...command.env},
+      stdio: 'inherit'
+    })
+    result.status = result.status || result.code
+    return result
+  } catch(error) {
+    return {status: 1}
+  }
 }
 
 module.exports = {
