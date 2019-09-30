@@ -2,4 +2,5 @@
 
 yarn install
 yarn bootstrap
-yarn test
+yarn build:all
+yarn test:all
