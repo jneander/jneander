@@ -1,18 +1,28 @@
-import {useEffect} from 'react'
+import {useLayoutEffect, useRef} from 'react'
 import Popper from 'popper.js'
 
 export default function usePosition(options) {
-  const {
-    anchorRef: {current: $anchor},
-    contentRef: {current: $content}
-  } = options
+  const {anchorRef, contentRef} = options
 
-  return useEffect(() => {
-    if (!$anchor || !$content) {
+  const anchorRefMemo = useRef(anchorRef.current)
+  const contentRefMemo = useRef(contentRef.current)
+  const teardownMemo = useRef(() => {})
+
+  return useLayoutEffect(() => {
+    if (
+      anchorRef.current === anchorRefMemo.current &&
+      contentRef.current === contentRefMemo.current
+    ) {
       return
     }
 
-    const popper = new Popper($anchor, $content, {
+    if (!anchorRef.current || !contentRef.current) {
+      teardownMemo.current()
+      teardownMemo.current = () => {}
+      return
+    }
+
+    const popper = new Popper(anchorRef.current, contentRef.current, {
       modifiers: {
         flip: {
           behavior: ['bottom', '']
@@ -30,8 +40,8 @@ export default function usePosition(options) {
       placement: 'bottom-end'
     })
 
-    return () => {
+    teardownMemo.current = () => {
       popper.destroy()
     }
-  }, [$anchor, $content])
+  })
 }
