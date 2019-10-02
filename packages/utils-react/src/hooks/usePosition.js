@@ -2,14 +2,17 @@ import {useEffect} from 'react'
 import Popper from 'popper.js'
 
 export default function usePosition(options) {
-  const {anchorRef, contentRef} = options
+  const {
+    anchorRef: {current: $anchor},
+    contentRef: {current: $content}
+  } = options
 
   return useEffect(() => {
-    if (!anchorRef.current || !contentRef.current) {
+    if (!$anchor || !$content) {
       return
     }
 
-    const popper = new Popper(anchorRef.current, contentRef.current, {
+    const popper = new Popper($anchor, $content, {
       modifiers: {
         flip: {
           behavior: ['bottom', '']
@@ -30,5 +33,5 @@ export default function usePosition(options) {
     return () => {
       popper.destroy()
     }
-  }, [anchorRef, contentRef])
+  }, [$anchor, $content])
 }
