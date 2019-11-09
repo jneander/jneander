@@ -1,4 +1,4 @@
-import React, {createContext, useContext, useLayoutEffect, useState} from 'react'
+import React, {createContext, useContext, useEffect, useState} from 'react'
 import {Focus} from '@jneander/focus-dom'
 
 import FocusRegion from './FocusRegion'
@@ -20,13 +20,16 @@ export function useFocusRegion(options) {
   const focus = useContext(focusContext)
   const [focusRegion] = useState(() => new FocusRegion(focus, options))
 
-  useLayoutEffect(() => {
+  useEffect(() => {
     return () => {
       focusRegion.remove()
     }
   }, [])
 
-  useLayoutEffect(() => {
+  /*
+   * Use effect after complete render so that all refs have propagated.
+   */
+  useEffect(() => {
     focusRegion.reconcile()
   })
 
