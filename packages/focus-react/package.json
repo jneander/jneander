@@ -1,6 +1,6 @@
 {
   "name": "@jneander/focus-react",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Focus management for React",
   "main": "./lib/index.js",
   "module": "./es/index.js",
