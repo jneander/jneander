@@ -1,5 +1,5 @@
 import {func, instanceOf, node} from 'prop-types'
-import React, {PureComponent, createContext, useContext} from 'react'
+import React, {PureComponent, createContext, useContext, useEffect, useState} from 'react'
 
 import {Routing} from '@jneander/activity-routing-history'
 
@@ -7,30 +7,19 @@ export default function createRoutingContext() {
   const context = createContext()
   const {Consumer, Provider} = context
 
-  class RoutingProvider extends PureComponent {
-    constructor(props) {
-      super(props)
+  function RoutingProvider(props) {
+    const [state, setState] = useState({
+      currentActivity: props.routing.getCurrentActivity(),
+      routing: props.routing
+    })
 
-      this.state = {
-        currentActivity: props.routing.getCurrentActivity(),
-        routing: props.routing
-      }
-    }
-
-    componentWillMount() {
-      this.unsubscribe = this.props.routing.subscribe(currentActivity => {
-        this.setState({currentActivity})
+    useEffect(() => {
+      return props.routing.subscribe(currentActivity => {
+        setState({currentActivity, routing: props.routing})
       })
-    }
+    }, [])
 
-    componentWillUnmount() {
-      this.unsubscribe()
-      this.unsubscribe = null
-    }
-
-    render() {
-      return <Provider value={this.state}>{this.props.children}</Provider>
-    }
+    return <Provider value={state}>{props.children}</Provider>
   }
 
   RoutingProvider.propTypes = {
