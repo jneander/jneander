@@ -1,32 +1,16 @@
-import Popper from 'popper.js'
+import {createPopper} from '@popperjs/core'
 
 import {useRefEffect} from '.'
 
 export default function usePosition(options) {
-  const {anchorRef, contentRef} = options
+  const {anchorRef, contentRef, popperOptions} = options
 
   return useRefEffect(() => {
     if (!anchorRef.current || !contentRef.current) {
       return
     }
 
-    const popper = new Popper(anchorRef.current, contentRef.current, {
-      modifiers: {
-        flip: {
-          behavior: ['bottom', '']
-        },
-
-        hide: {
-          enabled: false
-        },
-
-        preventOverflow: {
-          enabled: false
-        }
-      },
-
-      placement: 'bottom-end'
-    })
+    const popper = createPopper(anchorRef.current, contentRef.current, popperOptions)
 
     return () => {
       popper.destroy()

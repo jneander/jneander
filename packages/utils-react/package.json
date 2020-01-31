@@ -33,7 +33,7 @@
   "homepage": "https://github.com/jneander/jneander/packages/utils-react",
   "dependencies": {
     "@jneander/utils": "^1.0.0",
-    "popper.js": "^1.15.0"
+    "@popperjs/core": "^2.0.4"
   },
   "devDependencies": {
     "@babel/core": "^7.4.5",
