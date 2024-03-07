@@ -1,5 +1,26 @@
-Hey folks! 👋🏻
+![Dozens of rubber duckies of all shapes and sizes](./quack.webp)
 
-In case you don't know me, I'm a software craftsperson who has been in the industry for over ten years (time flies!). In that time, I've had the opportunity to work with some wonderful folks and experience some amazing ideas, and even contribute to sharing them with the world through code. It brings me great joy to collaborate with others and learn from them.
+Well, hello there! 👋🏻
 
-If you're looking for a Lead Software Engineer, ideally for a frontend role with an emphasis on web accessibility, please get in touch! I'm ready for the next stage of my journey, and to greet everyone I'll find along the way.
+I'm Jeremy, a full-quack developer with over 11 years of experience, and
+aspiring human being with nearly 40 years of experience. I'm always learning and
+tinkering, whether it's doing stuff with code, building things with wood, or
+telling stories with my writing.
+
+I'm passionate about accessibility, and believe the web is for everyone.
+Likewise for education. I believe that everyone has something to teach.
+
+Things I Am:
+
+- polyglot
+- craftsperson
+- [insert third thing here]
+
+Things I Am Not:
+
+- tall
+- cilantro enthusiast
+- your dad? 🤨
+
+I'm also an enthusiastic collaborator. So if you'd like to pair on a project, or
+share some code ideas, send a message my way!
