@@ -20,7 +20,7 @@ Things I Am Not:
 
 - tall
 - cilantro enthusiast
-- your dad? 🤨
+- your dad
 
 I'm also an enthusiastic collaborator. So if you'd like to pair on a project, or
 share some code ideas, send a message my way!
