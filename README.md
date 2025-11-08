@@ -2,8 +2,8 @@
 
 Well, hello there! 👋🏻
 
-I'm Jeremy, a full-quack developer with over 11 years of experience, and
-aspiring human being with nearly 40 years of experience. I'm always learning and
+I'm Jamie, a full-quack developer with over 11 years of experience, and aspiring
+human being with nearly 40 years of experience. I'm always learning and
 tinkering, whether it's doing stuff with code, building things with wood, or
 telling stories with my writing.
 
@@ -20,7 +20,7 @@ Things I Am Not:
 
 - tall
 - cilantro enthusiast
-- your dad
+- your mom
 
 I'm also an enthusiastic collaborator. So if you'd like to pair on a project, or
 share some code ideas, send a message my way!
